@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.13.0"
+  },
+  "name": "node-gb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ekaterina515/Node.git"
+  },
+  "author": "Ekaterina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ekaterina515/Node/issues"
+  },
+  "homepage": "https://github.com/Ekaterina515/Node#readme",
+  "description": ""
+}
