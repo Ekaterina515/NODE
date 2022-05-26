@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "events": "^3.3.0",
+    "moment": "^2.29.3"
   },
   "devDependencies": {
     "eslint": "^8.13.0"
