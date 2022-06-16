@@ -1,0 +1,42 @@
+<html>
+  <script
+    src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"
+  ></script>
+  <head>
+    <title>Socket App</title>
+  </head>
+  <body>
+    <h1>Count users: <span id="countUsers"></span></h1>
+    <input type="text" id="input" autofocus />
+    <input type="submit" id="send" value="Send" />
+    <div id="messages"></div>
+  </body>
+  <script type="text/javascript">
+    const socket = io("localhost:4000");
+    const countUsers = document.getElementById("countUsers");
+
+    const addMessage = (msg) => {
+      const msgSpan = (document.createElement("span").innerHTML = msg);
+      document.getElementById("messages").append(msgSpan);
+      document.getElementById("messages").append(document.createElement("br"));
+    };
+
+    socket.on("connect", () => {
+      console.log("User has been connected");
+    });
+
+    socket.on("SERVER_MSG", (data) => {
+      addMessage(data.msg);
+      countUsers.innerHTML = data.countUsers;
+    });
+
+    document.getElementById("send").onclick = function () {
+      socket.emit("CLIENT_MSG", {
+        msg: document.getElementById("input").value,
+      });
+      document.getElementById("input").value = "";
+    };
+  </script>
+</html>
